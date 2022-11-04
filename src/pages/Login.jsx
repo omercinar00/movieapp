@@ -3,51 +3,49 @@ import React from 'react'
 const Login = () => {
   return (
     <div
-      className="text-center container w-50 d-flex"
-      style={{
-        height: "92vh",
-      }}
+      className="d-flex justify-content-center "
+      
     >
-      <div className="form-signin w-100  m-auto">
-        <form>
-          <img
-            className="mb-4"
-            src="https://ca.slack-edge.com/T03LBL87DA8-U03MX0ZCV2L-bde228c1e694-72"
-            alt=""
-            width="72"
-            height="57"
-          />
-          <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
-
-          <div className="form-floating">
+      <div className="form-image d-none d-md-block ">
+        <img src={"https://picsum.photos/800/800"} alt="sample-movie" />
+      </div>
+      <div className="register-form">
+        <h1 className="form-title display-3 ">Login</h1>
+        <form id="register">
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
             <input
               type="email"
               className="form-control"
-              id="floatingInput"
-              placeholder="name@example.com"
+              id="email"
+              placeholder="Enter your email adress.."
+              required
             />
-            <label htmlFor="floatingInput">Email address</label>
           </div>
-          <div className="form-floating">
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
             <input
               type="password"
               className="form-control"
-              id="floatingPassword"
-              placeholder="Password"
+              id="password"
+              placeholder="Enter your password.."
+              required
             />
-            <label htmlFor="floatingPassword">Password</label>
           </div>
-
-          <div className="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me" /> Remember me
-            </label>
-          </div>
-          <button className="w-100 btn btn-lg btn-primary" type="submit">
-            Sign in
-          </button>
-          <p className="mt-5 mb-3 text-muted">© 2017–2022</p>
+          <div className="link">Forgot Password?</div>
+          <input
+            type="submit"
+            className="btn btn-primary form-control"
+            value="Login"
+          />
         </form>
+        <button className="btn btn-primary form-control">
+          Continue with Google
+        </button>
       </div>
     </div>
   );
