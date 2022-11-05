@@ -11,7 +11,7 @@ const Main = () => {
 
   const VERI_URL =`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
 
-  const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`;
+  const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}`;
 
 
   const getApi=async()=>{
@@ -25,8 +25,20 @@ const Main = () => {
 
     }
   }
+
+   const searchApi = async () => {
+     try {
+       const { data } = await axios(SEARCH_API);
+       console.log("data", data.results);
+       setMovies(data.results);
+     } catch (error) {
+       console.log("error", error);
+     }
+   };
+
   const handleSubmit =(e)=>{
     e.preventDefault()
+    searchApi()
   }
 
   useEffect(() => {

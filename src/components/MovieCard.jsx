@@ -8,7 +8,7 @@ const IMG_API = "https://image.tmdb.org/t/p/w1280";
 const defaultImage =
   "https://images.unsplash.com/photo-1581905764498-f1b60bae941a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80";
 
-const MovieCard = ({ poster_path, title, overview, vote_average}) => {
+const MovieCard = ({ poster_path, title, overview, vote_average,id}) => {
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const setVoteClass = (vote) => {
@@ -24,7 +24,7 @@ const MovieCard = ({ poster_path, title, overview, vote_average}) => {
     <div
       className="movie"
       onClick={() => {
-        navigate("/details/" + title);
+        navigate("/details/" + id);
         !currentUser && toastWarnNotify("Please log in to see detail");
       }}
     >
