@@ -17,9 +17,7 @@ const Main = () => {
   const getApi=async()=>{
     try {
      const {data} = await axios(VERI_URL)     
-     console.log('data', data.results) 
      setMovies(data.results);
-
     } catch (error) {
       console.log('error', error)
 
@@ -29,7 +27,6 @@ const Main = () => {
    const searchApi = async () => {
      try {
        const { data } = await axios(SEARCH_API);
-       console.log("data", data.results);
        setMovies(data.results);
      } catch (error) {
        console.log("error", error);
