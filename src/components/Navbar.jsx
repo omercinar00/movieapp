@@ -5,13 +5,34 @@ const Navbar = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <nav className="navbar navbar-dark bg-dark">
-        <Link to="/">
-          <h3>Movie App</h3>
-        </Link>
-        <div>
-          <button onClick={()=>navigate("/login")}>Login</button>
-          <button onClick={()=>navigate("/register")}>Register</button>
+      <nav className="navbar navbar-expand-lg ">
+        <div className="container-fluid">
+          <Link to="/" className="navbar-brand text-white">
+            <h4>React Movie App</h4>
+          </Link>
+          <div className="d-flex text-white align-items-center ">
+            {false ? (
+              <>
+                <h5 className="mb-0 text-capitalize"></h5>
+                <button
+                  className="ms-2 btn btn-outline-light"
+                  onClick={()=>navigate("/")}
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  className="ms-2 btn btn-outline-light"
+                  onClick={()=>navigate("/login")}
+                >
+                  Login
+                </button>
+                <button onClick={()=>navigate("/register")} className="ms-2 btn btn-outline-light">Register</button>
+              </>
+            )}
+          </div>
         </div>
       </nav>
     </div>
