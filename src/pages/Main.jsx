@@ -4,6 +4,8 @@ import MovieCard from "../components/MovieCard";
 
 const Main = () => {
   const [movies, setMovies] = useState([])
+  const [search, setSearch] = useState("")
+
   const API_KEY = "d30a8fd3c99b3b48b8263203351de7ab";
 
 
@@ -23,6 +25,9 @@ const Main = () => {
 
     }
   }
+  const handleSubmit =(e)=>{
+    e.preventDefault()
+  }
 
   useEffect(() => {
     getApi()
@@ -30,8 +35,22 @@ const Main = () => {
   
   return (
     <div>
+      <form className="search" onSubmit={handleSubmit}>
+        <input
+          type="search"
+          className="search search-input"
+          placeholder="Search movie..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button className="btn btn-outline-dark" type="submit">
+          SEARCH
+        </button>
+      </form>
       <div className="d-flex justify-content-center flex-wrap">
-        {movies?.map((movie) => <MovieCard key={movie.id} {...movie} />)}
+        {movies?.map((movie) => (
+          <MovieCard key={movie.id} {...movie} />
+        ))}
       </div>
     </div>
   );
