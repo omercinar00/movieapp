@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import { signIn } from "../auth/Firebase";
+import { signIn, signUpProvider } from "../auth/Firebase";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -7,6 +7,9 @@ const Login = () => {
   const [password, setPassword] = useState()
   console.log('email', email)
   console.log('password', password)
+  const handleProviderLogin = () => {
+    signUpProvider(navigate);
+  };
 
   const navigate = useNavigate()
   const handleSubmit=(e)=>{
@@ -62,7 +65,10 @@ const Login = () => {
             value="Login"
           />
         </form>
-        <button className="btn btn-primary form-control">
+        <button
+          className="btn btn-primary form-control"
+          onClick={handleProviderLogin}
+        >
           Continue with Google
         </button>
       </div>
