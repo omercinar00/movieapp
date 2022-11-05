@@ -22,7 +22,7 @@ const MovieDetails = () => {
     vote_count,
   } = movieDetail;
 
-   const {results} = video
+
    
 
   const getDetail = async () => {
@@ -39,7 +39,7 @@ const MovieDetails = () => {
     try {
       const { data } = await axios(videoUrl);
       console.log("data", data);
-      setVideo(data);
+      setVideo(data.results[0].key);
     } catch (error) {
       console.log("error", error);
     }
@@ -55,7 +55,7 @@ const MovieDetails = () => {
       <div className="card-body">
         <div className="ratio ratio-16x9">
           <iframe
-            src={`https://www.youtube.com/embed/${video &&results[1].key}?autoplay=1&mute=1`}
+            src={`https://www.youtube.com/embed/${video}?autoplay=1&mute=1`}
             title="YouTube video"
             allowFullScreen
           ></iframe>
