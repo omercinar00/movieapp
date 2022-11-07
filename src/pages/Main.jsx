@@ -1,10 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
+import { AuthContext } from "../context/AuthContext";
 
 const Main = () => {
   const [movies, setMovies] = useState([])
   const [search, setSearch] = useState("")
+  const {currentUser} = useContext(AuthContext)
 
   const API_KEY = "d30a8fd3c99b3b48b8263203351de7ab";
 
