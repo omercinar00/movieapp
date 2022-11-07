@@ -35,7 +35,13 @@ const Main = () => {
 
   const handleSubmit =(e)=>{
     e.preventDefault()
-    searchApi()
+      if (currentUser && search) {
+        getSearch();
+      } else if (!currentUser) {
+        toastWarnNotify("Please Login");
+      } else {
+        toastWarnNotify("Please Enter a Text");
+      }
   }
 
   useEffect(() => {
