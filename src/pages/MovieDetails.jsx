@@ -49,7 +49,7 @@ const MovieDetails = () => {
   useEffect(() => {
     getDetail();
     getVideos()
-  }, []);
+  },[]);
   
 
   return (

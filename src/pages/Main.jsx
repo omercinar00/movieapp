@@ -1,12 +1,15 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 import { AuthContext } from "../context/AuthContext";
+import { toastWarnNotify } from "../helpers/ToastNotify";
 
 const Main = () => {
   const [movies, setMovies] = useState([])
   const [search, setSearch] = useState("")
   const {currentUser} = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const API_KEY = "d30a8fd3c99b3b48b8263203351de7ab";
 
@@ -41,6 +44,9 @@ const Main = () => {
         searchApi();
       } else if (!currentUser) {
         toastWarnNotify("Please Login");
+       setTimeout(() => {
+        navigate("/login")
+       }, 3000);
       } else {
         toastWarnNotify("Please Enter a Text");
       }
