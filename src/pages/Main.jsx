@@ -36,7 +36,7 @@ const Main = () => {
   const handleSubmit =(e)=>{
     e.preventDefault()
       if (currentUser && search) {
-        getSearch();
+        searchApi();
       } else if (!currentUser) {
         toastWarnNotify("Please Login");
       } else {
